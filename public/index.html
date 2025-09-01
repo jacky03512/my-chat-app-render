@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>聊天室</title>
+</head>
+<body>
+    <h1>WebSocket</h1>
+    <ul id="messages"></ul>
+    <input id="author" placeholder="名字"/>
+    <input id="message" placeholder="訊息內容"/>
+    <button onclick="send()">送出</button>
+
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script>
+        const socket = io('http://localhost:3000');
+        const messages = document.getElementById('messages');
+
+        socket.on('new-message', (msg) => {
+            const li = document.createElement('li');
+            li.innerText = `${msg.author}: ${msg.content}`;
+            messages.appendChild(li);
+        });
+
+        async function send() {
+            const author = document.getElementById('author').value;
+            const content = document.getElementById('message').value;
+            await fetch('http://localhost:3000/messages', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({author, content})
+            });
+        }
+
+        // 初始化載入歷史資訊
+        fetch('http://localhost:3000/messages')
+        .then( res => res.json())
+        .then( data => {
+            data.array.forEach(msg => {
+                const li = document.createElement('li');
+                li.innerText = `${msg.author}: ${msg.content}`;
+                messages.appendChild(li);
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  
+  //add by jacky
+  //Prisma Client 的輸出路徑 (output) 改成了 ../generated/prisma，但 @prisma/client 預設會從 node_modules/.prisma/client 讀取生成的 client
+  //output   = "../generated/prisma"
+}
+
+datasource db {
+  //add by jacky
+  provider    = "sqlite"              //表示使用SQLite資料庫,輕量免安裝資料庫
+  url         = "file:./dev.db"       //資料庫是本地一個檔案dev.db
+  //provider  = "postgresql"          //表示使用PostgreSQL資料庫,適合正式環境與複雜應用
+  //url       = env("DATABASE_URL")   //從環境變數DATABASE_URL讀取資料庫連線字串
+                                      //DATABASE_URL="postgresql:user:password@localhost:5432/mydb"    
+}
+
+model Message {
+  id        Int       @id @default(autoincrement()) //不能傳入值
+  author    String    //一定要傳入值
+  content   String
+  age       Int?      //optional,可不傳入值
+  age2      Int       @default(0) //可傳入值
+  createdAt DateTime  @default(now()) //不能傳入值
+}
