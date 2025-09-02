@@ -7,7 +7,9 @@ import cors from 'cors'
 import path from 'path'
 
 const app = express();
-const port = 3000;
+
+//const port = 3000;
+const port = process.env.PORT || 3000;
 
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
