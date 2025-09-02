@@ -29,7 +29,7 @@
             const author = document.getElementById('author').value;
             const content = document.getElementById('message').value;
             //await fetch('http://localhost:3000/messages', {
-            await fetch(`${API_BASE_URL}\messages`, {
+            await fetch(`${API_BASE_URL}/messages`, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({author, content})
@@ -38,7 +38,7 @@
 
         // 初始化載入歷史資訊
         //fetch('http://localhost:3000/messages')
-        fetch(`${API_BASE_URL}\messages`)
+        fetch(`${API_BASE_URL}/messages`)
         .then( res => res.json())
         .then( data => {
             data.array.forEach(msg => {
