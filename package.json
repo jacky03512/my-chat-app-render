@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm install @types/node && prisma generate",
     "start": "node dist/index.js",
-    "build": "tsc"
+    "build": "tsc",
+    "postinstall": "prisma generate"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +15,6 @@
   
   "dependencies": {
     "@prisma/client": "^6.15.0",
-    "@types/node": "^20.19.11",
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "socket.io": "^4.8.1"

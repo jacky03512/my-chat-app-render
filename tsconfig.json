@@ -15,7 +15,8 @@
     "outDir" : "./dist",
     "esModuleInterop": true,
     "strict": true,
-    "types": ["node"], //讓typescript找到__dirname, path, http等Node.js內建模組的型別
+    //讓typescript找到__dirname, path, http等Node.js內建模組的型別
+    "types": ["node"], 
     "moduleResolution": "node",
 
     //"module": "nodenext",
@@ -57,6 +58,6 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true,
+    "skipLibCheck": true
   }
 }
