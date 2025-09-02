@@ -15,8 +15,8 @@
     "outDir" : "./dist",
     "esModuleInterop": true,
     "strict": true,
-    //"types": ["node"], //讓typescript找到__dirname, path, http等Node.js內建模組的型別
-    //"moduleResolution": "node",
+    "types": ["node"], //讓typescript找到__dirname, path, http等Node.js內建模組的型別
+    "moduleResolution": "node",
 
     //"module": "nodenext",
     //"target": "esnext",
@@ -48,15 +48,15 @@
     //add by jacky
     //"strict": true,
     
-    //"jsx": "react-jsx",
+    "jsx": "react-jsx",
     
     //add by jacky
     //"verbatimModuleSyntax": true,
-    //"verbatimModuleSyntax": false,
+    "verbatimModuleSyntax": false,
 
-    //"isolatedModules": true,
-    //"noUncheckedSideEffectImports": true,
-    //"moduleDetection": "force",
-    //"skipLibCheck": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true,
   }
 }
