@@ -16,6 +16,7 @@
         //const socket = io('http://localhost:3000');
         const socket = io();
         const messages = document.getElementById('messages');
+        const https = "https://my-chat-app-render.onrender.com/messages";
 
         socket.on('new-message', (msg) => {
             const li = document.createElement('li');
@@ -26,7 +27,8 @@
         async function send() {
             const author = document.getElementById('author').value;
             const content = document.getElementById('message').value;
-            await fetch('http://localhost:3000/messages', {
+            //await fetch('http://localhost:3000/messages', {
+            await fetch(https, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({author, content})
@@ -34,7 +36,8 @@
         }
 
         // 初始化載入歷史資訊
-        fetch('http://localhost:3000/messages')
+        //fetch('http://localhost:3000/messages')
+        fetch(https)
         .then( res => res.json())
         .then( data => {
             data.array.forEach(msg => {
