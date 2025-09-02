@@ -16,7 +16,8 @@
         //const socket = io('http://localhost:3000');
         const socket = io();
         const messages = document.getElementById('messages');
-        const https = "https://my-chat-app-render.onrender.com/messages";
+        const API_BASE_URL = location.hostname === 'localhost'
+        ? 'http://localhost:3000' : 'https://my-chat-app-render.onrender.com';
 
         socket.on('new-message', (msg) => {
             const li = document.createElement('li');
@@ -28,7 +29,7 @@
             const author = document.getElementById('author').value;
             const content = document.getElementById('message').value;
             //await fetch('http://localhost:3000/messages', {
-            await fetch(https, {
+            await fetch(`${API_BASE_URL}\messages`, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({author, content})
@@ -37,7 +38,7 @@
 
         // 初始化載入歷史資訊
         //fetch('http://localhost:3000/messages')
-        fetch(https)
+        fetch(`${API_BASE_URL}\messages`)
         .then( res => res.json())
         .then( data => {
             data.array.forEach(msg => {
