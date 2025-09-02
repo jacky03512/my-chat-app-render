@@ -48,15 +48,15 @@
     //add by jacky
     //"strict": true,
     
-    "jsx": "react-jsx",
+    //"jsx": "react-jsx",
     
     //add by jacky
     //"verbatimModuleSyntax": true,
-    "verbatimModuleSyntax": false,
+    //"verbatimModuleSyntax": false,
 
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true,
+    //"isolatedModules": true,
+    //"noUncheckedSideEffectImports": true,
+    //"moduleDetection": "force",
+    //"skipLibCheck": true,
   }
 }
